@@ -30,6 +30,6 @@ int main()
     cout << vec1.x << " , " << vec1.y << endl;
     cout << vec2.x << " , " << vec2.y << endl;
     cout << vec1.dot(vec2) << endl;
-	
-	return 0;
+    
+    return 0;
 }
