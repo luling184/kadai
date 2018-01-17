@@ -42,15 +42,6 @@ private:
 	int m_num;
 };
 
-class DelegateBase
-{
-public:
-	DelegateBase() = default;
-	virtual ~DelegateBase() { }
-
-	virtual void operator() (int value) = 0;
-};
-
 class Delegate
 	: public DelegateBase
 {
@@ -72,7 +63,6 @@ public:
 	}
 
 protected:
-	// Type* m_obj;
 	std::function<void(int)> m_func;
 	std::vector<std::function<void(int)>> m_eventList;
 };
@@ -86,8 +76,7 @@ int main()
 
 	onOpenDoorHandler.set(std::bind(&Dog::bark, &dog, std::placeholders::_1));
 	onOpenDoorHandler.set(std::bind(&Cat::run, &cat, std::placeholders::_1));
-
-
+	
 	int value = 0;
 	onOpenDoorHandler(value);
 
